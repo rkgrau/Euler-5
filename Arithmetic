@@ -1,0 +1,34 @@
+from collections import Counter
+import numpy
+
+#Create a dictionary that includes all the values we want to check, and set their counts to 0.
+values_to_check = range(2, 21)
+cFactors = dict.fromkeys(values_to_check, 0)
+print(cFactors)
+
+
+def prime_factors(n):
+    i = 2
+    factors = []
+    while n > 1:
+        while n % i == 0:
+            factors.append(i)
+            n /= i
+        i += 1
+
+
+    #print(factors)
+    return factors
+
+
+for num in range(2,21):
+    count_of_factors = dict(Counter(prime_factors(num)))
+
+    for keyA, valueA in count_of_factors.items():
+        for keyB, valueB in cFactors.items():
+            if keyA == keyB and valueA > valueB:
+                cFactors[keyB] = valueA
+
+
+print(cFactors)
+print(numpy.prod(k**v for k, v in cFactors.items()))
