@@ -31,4 +31,4 @@ for num in range(2,21):
 
 
 print(cFactors)
-print(numpy.prod(k**v for k, v in cFactors.items()))
+print(numpy.prod([k**v for k, v in cFactors.items()]))
